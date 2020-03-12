@@ -14,9 +14,9 @@ public:
 
 	void initialize(Mat &src, Mat &dst) //해리스 코너 식을 계산하기 위해 모든 컬러값을 1로 바꾼다.
 	{
-		for (int i = 0; src.cols; i++)
+		for (int i = 1; i<src.cols-1; i++)
 		{
-			for (int j = 0; src.rows; j++)
+			for (int j = 1; j<src.rows-1; j++)
 			{
 				if (src.at<uchar>(j, i) > 0)
 					dst.at<uchar>(j, i) = 1;
@@ -24,6 +24,7 @@ public:
 				dst.at<uchar>(j, i) = 0;
 			}
 		}
+
 	}
 
 	void calcul(Mat &src, Mat &dys, Mat &dxs, Mat &dydx)
